@@ -1,0 +1,161 @@
+<MyGridLayout>
+
+    #canvas.before:
+    #    Rectangle:
+    #        pos: self.pos
+    #        size: self.size
+    #        source: "back.jpg"
+
+    input:input
+    result:result
+
+    BoxLayout:
+        orientation: "vertical"
+        cols:1
+        size: root.width, root.height
+
+        spacing: 10
+
+        GridLayout:
+            cols: 2
+
+            GridLayout:
+                cols: 1
+                size_hint: None, 1
+                width: 290
+                spacing: 10
+                padding: 20
+
+                BoxLayout:
+                    size: 200, 50
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "  Хип-хоп"
+                        font_size: 20
+                        text_size: self.size
+                        valign: 'center'
+                        color: (0,0,0)
+                    CheckBox:
+                        group: 'fields'
+                        on_active: root.radio_button_checked(self, self.active, "rap")
+                        color: (0,0,0)
+
+                BoxLayout:
+                    size: 200, 50
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "  Новости"
+                        font_size: 20
+                        text_size: self.size
+                        valign: 'center'
+                        color: (0,0,0)
+                    CheckBox:
+                        group: 'fields'
+                        on_active: root.radio_button_checked(self, self.active, "news")
+                        color: (0,0,0)
+
+                BoxLayout:
+                    size: 200, 50
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "  Спорт"
+                        font_size: 20
+                        text_size: self.size
+                        valign: 'center'
+                        color: (0,0,0)
+                    CheckBox:
+                        group: 'fields'
+                        on_active: root.radio_button_checked(self, self.active, "sport")
+                        color: (0,0,0)
+
+                BoxLayout:
+                    size: 220, 50
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "  Литература"
+                        font_size: 20
+                        text_size: self.size
+                        valign: 'center'
+                        color: (0,0,0)
+                    CheckBox:
+                        group: 'fields'
+                        on_active: root.radio_button_checked(self, self.active, "literature")
+                        color: (0,0,0)
+
+                BoxLayout:
+                    size: 200, 50
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "  Право"
+                        text_size: self.size
+                        valign: 'center'
+                        color: (0,0,0)
+                        font_size: 20
+                    CheckBox:
+                        group: 'fields'
+                        on_active: root.radio_button_checked(self, self.active, "kursovik")
+                        color: (0,0,0)
+
+            Image:
+                source: "gru.png"
+
+        Label:
+            text: "Введите небольшое предложение"
+            color: "00FFCE"
+            font_size: 18
+            size_hint_y: None
+            height: 40
+
+
+        TextInput:
+            id: input
+            multiline: False,
+            padding_y: (16, 13)
+            padding_x: (10, 10)
+            size_hint: (0.8, None)
+            height: 50
+            pos_hint: {'center_x': 0.5}
+
+        Button:
+            text: "Сгенерировать текст"
+            background_color: '00FFCE'
+            size_hint: (0.4, None)
+            height: 40
+            pos_hint: {'center_x': 0.5}
+            bold: True
+            on_press: root.press()
+
+        Label:
+            id: result
+            text: ''
+            color: '00FFCE'
+            size_hint: (0.8, 1)
+            font_size: 18
+            pos_hint: {'center_x': 0.5}
+            valign: 'top'
+            text_size: self.size
